@@ -3,8 +3,8 @@ import openai
 
 app = Flask(__name__)
 
-# 🔑 API key directly set ki gayi hai (hardcoded for now)
-openai.api_key = "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"
+# ✅ Use a valid sk-... key here (user-level key)
+openai.api_key = "sk-REPLACE_WITH_YOUR_VALID_KEY"
 
 @app.route("/")
 def index():
@@ -17,7 +17,7 @@ def ask():
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "You are an intelligent assistant named 'Udaan AI', helpful, friendly and motivational."},
+                {"role": "system", "content": "You are an intelligent assistant named 'Udaan AI'."},
                 {"role": "user", "content": user_input}
             ],
             temperature=0.8,
